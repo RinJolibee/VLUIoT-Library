@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "author": "VLUIoT",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp32",
+      "top": -19.2,
+      "left": -139.16,
+      "attrs": {}
+    },
+    { "type": "wokwi-led", "id": "led", "top": -80.4, "left": 167, "attrs": { "color": "red" } },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": -28.8, "left": 172.2, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -80.4,
+      "left": 253.4,
+      "attrs": { "color": "orange" }
+    },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": -19.2, "left": 258.6, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -162.9, "left": 71.4, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": -56.84, "left": 38.4, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd3", "top": -38.4, "left": 105, "attrs": {} },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd1",
+      "top": 188.8,
+      "left": 53.6,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-vcc", "id": "vcc2", "top": 221.56, "left": -48, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd4", "top": 220.8, "left": -77.4, "attrs": {} }
+  ],
+  "connections": [
+    [ "led:A", "esp32:5", "green", [ "v0" ] ],
+    [ "led:C", "gnd1:GND", "green", [ "v0" ] ],
+    [ "led1:C", "gnd2:GND", "green", [ "v0" ] ],
+    [ "led1:A", "esp32:4", "green", [ "v0" ] ],
+    [ "dht1:VCC", "vcc1:VCC", "red", [ "v38.4", "h-38.4" ] ],
+    [ "dht1:GND", "gnd3:GND", "black", [ "v0" ] ],
+    [ "lcd1:GND", "gnd4:GND", "black", [ "h0" ] ],
+    [ "lcd1:VCC", "vcc2:VCC", "red", [ "h-76.8", "v38.5", "h-19.2" ] ],
+    [ "lcd1:SDA", "esp32:21", "green", [ "h-38.4", "v-182.2" ] ],
+    [ "lcd1:SCL", "esp32:22", "green", [ "h-28.8", "v-210.9" ] ],
+    [ "dht1:SDA", "esp32:23", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
